@@ -82,7 +82,7 @@ Register with empty cpf field
     Get Text    css=form .notice        equal        Por favor, informe o seu CPF
 
 Register with invalid e-mail field 
-    [Tags]    required
+    # [Tags]    required
     #prepare
     New Browser    browser=chromium    headless=False
     New Page        http://localhost:3000
@@ -99,3 +99,22 @@ Register with invalid e-mail field
     ...    css=#signup .notice
     ...    visible    5
     Get Text    css=form .notice        equal        Oops! O email informado é inválido
+
+Register with invalid cpf field 
+    [Tags]    required
+    #prepare
+    New Browser    browser=chromium    headless=False
+    New Page        http://localhost:3000
+    Get Text    css=#signup h2    equal        Faça seu cadastro e venha para a Smartbit!
+    #action
+    Fill Text    id=name    Edson
+    Fill Text    id=email    edson@teste.com
+    Fill Text    id=document    1235214907XXX
+    
+    # Click    xpath=//button[text()="Cadastrar"]
+    Click    css=button >> text=Cadastrar
+    #verification
+    Wait for Elements State
+    ...    css=#signup .notice
+    ...    visible    5
+    Get Text    css=form .notice        equal        Oops! O CPF informado é inválido
