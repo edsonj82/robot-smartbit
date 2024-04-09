@@ -15,7 +15,7 @@ Should show the Register User
     #action
     Fill Text    id=name    ${account}[name]
     Fill Text    id=email    ${account}[email]
-    Fill Text    id=document    ${account}[document]
+    Fill Text    id=cpf    ${account}[cpf]
     
     # Click    xpath=//button[text()="Cadastrar"]
     Click    css=button >> text=Cadastrar
@@ -33,7 +33,7 @@ Register with empty name field
     #action
     # Fill Text    id=name    ${account}[name]
     Fill Text    id=email    edson@teste.com
-    Fill Text    id=document    12352149070
+    Fill Text    id=cpf    12352149070
     
     # Click    xpath=//button[text()="Cadastrar"]
     Click    css=button >> text=Cadastrar
@@ -52,7 +52,7 @@ Register with empty e-mail field
     #action
     Fill Text    id=name    Edson
     # Fill Text    id=email    edson@teste.com
-    Fill Text    id=document    12352149070
+    Fill Text    id=cpf    12352149070
     
     # Click    xpath=//button[text()="Cadastrar"]
     Click    css=button >> text=Cadastrar
@@ -71,7 +71,7 @@ Register with empty cpf field
     #action
     Fill Text    id=name    Edson
     Fill Text    id=email    edson@teste.com
-    # Fill Text    id=document    12352149070
+    # Fill Text    id=cpf    12352149070
     
     # Click    xpath=//button[text()="Cadastrar"]
     Click    css=button >> text=Cadastrar
@@ -90,7 +90,7 @@ Register with invalid e-mail field
     #action
     Fill Text    id=name    Edson
     Fill Text    id=email    edson#teste.com
-    Fill Text    id=document    12352149070
+    Fill Text    id=cpf    12352149070
     
     # Click    xpath=//button[text()="Cadastrar"]
     Click    css=button >> text=Cadastrar
@@ -101,7 +101,7 @@ Register with invalid e-mail field
     Get Text    css=form .notice        equal        Oops! O email informado é inválido
 
 Register with invalid cpf field 
-    [Tags]    required
+    # [Tags]    required
     #prepare
     New Browser    browser=chromium    headless=False
     New Page        http://localhost:3000
@@ -109,7 +109,7 @@ Register with invalid cpf field
     #action
     Fill Text    id=name    Edson
     Fill Text    id=email    edson@teste.com
-    Fill Text    id=document    1235214907XXX
+    Fill Text    id=cpf    1235214907XXX
     
     # Click    xpath=//button[text()="Cadastrar"]
     Click    css=button >> text=Cadastrar
