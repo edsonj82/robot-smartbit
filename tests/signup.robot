@@ -8,22 +8,21 @@ Resource        ../resources/base.resource
 *** Test Cases ***
 Should show the Register User
     # [Tags]    required
-
     ${account}        Get Fake Account
-
     #prepare
-    New Browser    browser=chromium    headless=False
-    New Page        http://localhost:3000
-
+    # New Browser    browser=chromium    headless=False
+    # New Page        http://localhost:3000
+    Start session
     # Get Text    css=#signup h2    equal        Faça seu cadastro e venha para a Smartbit!
+    
     # #action
     # Fill Text    id=name    ${account}[name]
     # Fill Text    id=email    ${account}[email]
     # Fill Text    id=cpf    ${account}[cpf]
-    
     # # Click    xpath=//button[text()="Cadastrar"]
     # Click    css=button >> text=Cadastrar
     Submit signup forward    ${account}
+
     #verification
     Wait for Elements State    text=Falta pouco para fazer parte da família Smartbit!    visible    5
 
@@ -32,8 +31,9 @@ Should show the Register User
 Register with empty name field 
     #  [Tags]    required
     #prepare
-    New Browser    browser=chromium    headless=False
-    New Page        http://localhost:3000
+    # New Browser    browser=chromium    headless=False
+    # New Page        http://localhost:3000
+    Start session
     # Get Text    css=#signup h2    equal        Faça seu cadastro e venha para a Smartbit!
     # # action
     # # Fill Text    id=name    ${account}[name]
@@ -59,8 +59,9 @@ Register with empty name field
 Register with empty e-mail field 
     #  [Tags]    required
     #prepare
-    New Browser    browser=chromium    headless=False
-    New Page        http://localhost:3000
+    # New Browser    browser=chromium    headless=False
+    # New Page        http://localhost:3000
+    Start session
     # Get Text    css=#signup h2    equal        Faça seu cadastro e venha para a Smartbit!
     # #action
     # Fill Text    id=name    Edson
@@ -85,8 +86,9 @@ Register with empty e-mail field
 Register with empty cpf field 
     #  [Tags]    required
     #prepare
-    New Browser    browser=chromium    headless=False
-    New Page        http://localhost:3000
+    # New Browser    browser=chromium    headless=False
+    # New Page        http://localhost:3000
+    Start session
     # Get Text    css=#signup h2    equal        Faça seu cadastro e venha para a Smartbit!
     # #action
     # Fill Text    id=name    Edson
@@ -111,8 +113,9 @@ Register with empty cpf field
 Register with invalid e-mail field 
     #  [Tags]    required
     #prepare
-    New Browser    browser=chromium    headless=False
-    New Page        http://localhost:3000
+    # New Browser    browser=chromium    headless=False
+    # New Page        http://localhost:3000
+    Start session
     # Get Text    css=#signup h2    equal        Faça seu cadastro e venha para a Smartbit!
     # #action
     # Fill Text    id=name    Edson
@@ -137,8 +140,9 @@ Register with invalid e-mail field
 Register with invalid cpf field 
     #  [Tags]    required
     #prepare
-    New Browser    browser=chromium    headless=False
-    New Page        http://localhost:3000
+    # New Browser    browser=chromium    headless=False
+    # New Page        http://localhost:3000
+    Start session
     # Get Text    css=#signup h2    equal        Faça seu cadastro e venha para a Smartbit!
     # #action
     # Fill Text    id=name    Edson
@@ -162,6 +166,10 @@ Register with invalid cpf field
 
 
 *** Keywords ***
+Start session
+    New Browser    browser=chromium    headless=False
+    New Page        http://localhost:3000
+
 Submit signup forward
     [Arguments]        ${account}
 
