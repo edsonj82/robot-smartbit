@@ -7,7 +7,7 @@ Resource        ../resources/base.resource
 
 *** Test Cases ***
 Should show the Register User
-    [Tags]    required
+    # [Tags]    required
 
     ${account}        Get Fake Account
 
@@ -30,18 +30,18 @@ Should show the Register User
     Sleep    10
 
 Register with empty name field 
-    # [Tags]    required
+    #  [Tags]    required
     #prepare
     New Browser    browser=chromium    headless=False
     New Page        http://localhost:3000
-    Get Text    css=#signup h2    equal        Faça seu cadastro e venha para a Smartbit!
-    # action
-    # Fill Text    id=name    ${account}[name]
-    Fill Text    id=email    edson@teste.com
-    Fill Text    id=cpf    12352149070
+    # Get Text    css=#signup h2    equal        Faça seu cadastro e venha para a Smartbit!
+    # # action
+    # # Fill Text    id=name    ${account}[name]
+    # Fill Text    id=email    edson@teste.com
+    # Fill Text    id=cpf    12352149070
     
-    # Click    xpath=//button[text()="Cadastrar"]
-    Click    css=button >> text=Cadastrar
+    # # Click    xpath=//button[text()="Cadastrar"]
+    # Click    css=button >> text=Cadastrar
     
     ${account}        Create Dictionary
     ...    name=${EMPTY}
@@ -57,18 +57,25 @@ Register with empty name field
     Get Text    css=form .notice        equal        Por favor informe o seu nome completo
 
 Register with empty e-mail field 
-    # [Tags]    required
+     [Tags]    required
     #prepare
     New Browser    browser=chromium    headless=False
     New Page        http://localhost:3000
-    Get Text    css=#signup h2    equal        Faça seu cadastro e venha para a Smartbit!
-    #action
-    Fill Text    id=name    Edson
-    # Fill Text    id=email    edson@teste.com
-    Fill Text    id=cpf    12352149070
+    # Get Text    css=#signup h2    equal        Faça seu cadastro e venha para a Smartbit!
+    # #action
+    # Fill Text    id=name    Edson
+    # # Fill Text    id=email    edson@teste.com
+    # Fill Text    id=cpf    12352149070
     
-    # Click    xpath=//button[text()="Cadastrar"]
-    Click    css=button >> text=Cadastrar
+    # # Click    xpath=//button[text()="Cadastrar"]
+    # Click    css=button >> text=Cadastrar
+
+        ${account}        Create Dictionary
+    ...    name= Edson
+    ...    email=${EMPTY}
+    ...    cpf=12352149070
+    
+    Submit signup forward    ${account}
     #verification
     Wait for Elements State
     ...    css=#signup .notice
