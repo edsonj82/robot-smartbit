@@ -83,7 +83,7 @@ Register with empty e-mail field
     Get Text    css=form .notice        equal        Por favor, informe o seu melhor e-mail
 
 Register with empty cpf field 
-     [Tags]    required
+    #  [Tags]    required
     #prepare
     New Browser    browser=chromium    headless=False
     New Page        http://localhost:3000
@@ -109,18 +109,25 @@ Register with empty cpf field
     Get Text    css=form .notice        equal        Por favor, informe o seu CPF
 
 Register with invalid e-mail field 
-    # [Tags]    required
+    #  [Tags]    required
     #prepare
     New Browser    browser=chromium    headless=False
     New Page        http://localhost:3000
-    Get Text    css=#signup h2    equal        Faça seu cadastro e venha para a Smartbit!
-    #action
-    Fill Text    id=name    Edson
-    Fill Text    id=email    edson#teste.com
-    Fill Text    id=cpf    12352149070
+    # Get Text    css=#signup h2    equal        Faça seu cadastro e venha para a Smartbit!
+    # #action
+    # Fill Text    id=name    Edson
+    # Fill Text    id=email    edson#teste.com
+    # Fill Text    id=cpf    12352149070
     
-    # Click    xpath=//button[text()="Cadastrar"]
-    Click    css=button >> text=Cadastrar
+    # # Click    xpath=//button[text()="Cadastrar"]
+    # Click    css=button >> text=Cadastrar
+
+    ${account}        Create Dictionary
+    ...    name= Edson
+    ...    email=edson#teste.com
+    ...    cpf=12352149070
+    
+    Submit signup forward    ${account}
     #verification
     Wait for Elements State
     ...    css=#signup .notice
@@ -128,18 +135,25 @@ Register with invalid e-mail field
     Get Text    css=form .notice        equal        Oops! O email informado é inválido
 
 Register with invalid cpf field 
-    # [Tags]    required
+    #  [Tags]    required
     #prepare
     New Browser    browser=chromium    headless=False
     New Page        http://localhost:3000
-    Get Text    css=#signup h2    equal        Faça seu cadastro e venha para a Smartbit!
-    #action
-    Fill Text    id=name    Edson
-    Fill Text    id=email    edson@teste.com
-    Fill Text    id=cpf    1235214907XXX
+    # Get Text    css=#signup h2    equal        Faça seu cadastro e venha para a Smartbit!
+    # #action
+    # Fill Text    id=name    Edson
+    # Fill Text    id=email    edson@teste.com
+    # Fill Text    id=cpf    1235214907XXX
     
-    # Click    xpath=//button[text()="Cadastrar"]
-    Click    css=button >> text=Cadastrar
+    # # Click    xpath=//button[text()="Cadastrar"]
+    # Click    css=button >> text=Cadastrar
+
+        ${account}        Create Dictionary
+    ...    name= Edson
+    ...    email=edson@teste.com
+    ...    cpf=1235214907XXX
+    
+    Submit signup forward    ${account}
     #verification
     Wait for Elements State
     ...    css=#signup .notice
