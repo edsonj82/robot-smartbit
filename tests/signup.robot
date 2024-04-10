@@ -4,6 +4,7 @@ Documentation       Teste para verificar o Slogan da SmartBit na WebApp
 
 # Library        Browser
 Resource        ../resources/Base.resource
+Resource        ../resources/pages/Welcome.resource
 # Resource        ../resources/pages/Landing.resource
 
 *** Test Cases ***
@@ -18,10 +19,7 @@ Should show the Register User
     Submit signup forward    ${account}
     
     #verification
-    Wait for Elements State    
-    ...    text=Falta pouco para fazer parte da família Smartbit!    
-    ...    visible    5
-    Sleep    10
+    Verify welcome message
 
 Register with empty name field 
     #  [Tags]    required
