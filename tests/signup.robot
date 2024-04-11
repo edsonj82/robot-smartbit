@@ -20,6 +20,7 @@ Should show the Register User
     
     #verification
     Verify welcome message
+    Take Screenshot
 
 Register with empty name field 
     #  [Tags]    required
@@ -36,7 +37,7 @@ Register with empty name field
     
     #verification
     Message should be       Por favor informe o seu nome completo
-
+    Take Screenshot
 Register with empty e-mail field 
     #  [Tags]    required
     #prepare
@@ -52,7 +53,7 @@ Register with empty e-mail field
     
     #verification
     Message should be        Por favor, informe o seu melhor e-mail
-
+    Take Screenshot
 Register with empty cpf field 
     #  [Tags]    required
     #prepare
@@ -66,7 +67,7 @@ Register with empty cpf field
 
     #verification
     Message should be        Por favor, informe o seu CPF
-
+    Take Screenshot
 Register with invalid e-mail field 
     #  [Tags]    required
     #prepare
@@ -82,7 +83,7 @@ Register with invalid e-mail field
 
     #verification
     Message should be        Oops! O email informado é inválido
-
+    Take Screenshot
 Register with invalid cpf field 
     #  [Tags]    required
     #prepare
@@ -98,4 +99,4 @@ Register with invalid cpf field
     
     #verification
     Message should be        Oops! O CPF informado é inválido
-
+    Take Screenshot
