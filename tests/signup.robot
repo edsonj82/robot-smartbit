@@ -4,8 +4,10 @@ Documentation       Teste para verificar o Slogan da SmartBit na WebApp
 
 # Library        Browser
 Resource        ../resources/Base.resource
-Resource        ../resources/pages/Welcome.resource
+# Resource        ../resources/pages/Welcome.resource
 # Resource        ../resources/pages/Landing.resource
+Test Setup        Start session
+Test Teardown    Take Screenshot
 
 *** Test Cases ***
 Should show the Register User
@@ -13,19 +15,19 @@ Should show the Register User
     ${account}        Get Fake Account
 
     #prepare
-    Start session
+    # Start session
 
     #action
     Submit signup forward    ${account}
     
     #verification
     Verify welcome message
-    Take Screenshot
+    # Take Screenshot
 
 Register with empty name field 
     #  [Tags]    required
     #prepare
-    Start session
+    # Start session
     
     # action  
     ${account}        Create Dictionary
@@ -37,11 +39,11 @@ Register with empty name field
     
     #verification
     Message should be       Por favor informe o seu nome completo
-    Take Screenshot
+    # Take Screenshot
 Register with empty e-mail field 
     #  [Tags]    required
     #prepare
-    Start session
+    # Start session
     
     #action
     ${account}        Create Dictionary
@@ -53,11 +55,11 @@ Register with empty e-mail field
     
     #verification
     Message should be        Por favor, informe o seu melhor e-mail
-    Take Screenshot
+    # Take Screenshot
 Register with empty cpf field 
     #  [Tags]    required
     #prepare
-    Start session
+    # Start session
     ${account}        Create Dictionary
     ...    name= Edson
     ...    email=edson@teste.com
@@ -67,11 +69,11 @@ Register with empty cpf field
 
     #verification
     Message should be        Por favor, informe o seu CPF
-    Take Screenshot
+    # Take Screenshot
 Register with invalid e-mail field 
     #  [Tags]    required
     #prepare
-    Start session
+    # Start session
 
     # #action
     ${account}        Create Dictionary
@@ -83,11 +85,11 @@ Register with invalid e-mail field
 
     #verification
     Message should be        Oops! O email informado é inválido
-    Take Screenshot
+    # Take Screenshot
 Register with invalid cpf field 
     #  [Tags]    required
     #prepare
-    Start session
+    # Start session
     
     #action
     ${account}        Create Dictionary
@@ -99,4 +101,4 @@ Register with invalid cpf field
     
     #verification
     Message should be        Oops! O CPF informado é inválido
-    Take Screenshot
+    # Take Screenshot
