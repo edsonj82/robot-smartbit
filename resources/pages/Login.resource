@@ -13,11 +13,3 @@ Submit login form
     Fill Text            css=input[name=email]          ${email}
     Fill Text            css=input[name=password]        ${password}
     Click               css=button >> text=ENTRAR
-
-# User is logged in  
-#     [Arguments]        ${email}
-
-#     ${element}        Set Variable        css=.logged-user
-
-#     Wait For Elements State    ${element}    visible        5
-#     Get Text    ${element}    equal        ${email}
