@@ -18,13 +18,3 @@ Submit signup forward
     
     # Click    xpath=//button[text()="Cadastrar"]
     Click    css=button >> text=Cadastrar
-
-Message should be
-    [Arguments]    ${target}
-
-    Wait for Elements State
-    ...    css=#signup .notice
-    ...    visible    5
-    
-    Get Text    
-    ...    css=form .notice        equal        ${target}

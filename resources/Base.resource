@@ -10,6 +10,7 @@ Resource        pages/Login.resource
 Resource        pages/Accounts.resource
 
 Resource        pages/components/Toast.resource
+Resource        pages/components/BoxMessage.resource
 
 *** Keywords ***
 Start session
