@@ -4,3 +4,4 @@ report.html
 playwright-log.txt
 browser
 logs
+resources/libs/Database.py
