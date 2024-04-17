@@ -18,12 +18,17 @@ Should be a new membership
 
     Select account        Miguel da Paz        714.208.965-20
 
-    Fill Text    css=input[aria-label=select_plan]    Plano Black
-    # Click    css=div[id*=option] >> text=Plano Black
-     Click    css=div[class$=option] >> text=Plano Black
+    Select plan            Plano Black
 
-    ${html}        Get Page Source
-    Log    ${html}
+    Fill payment card    
+    ...       4242424242424242
+    ...       Edson José
+    ...       04
+    ...       2040
+    ...        123
+
+    # ${html}        Get Page Source
+    # Log    ${html}
 
 *** Keywords ***
 Go to Enrolls
@@ -37,11 +42,24 @@ Go to Enroll form
    Wait For Elements State    css=h1 >> text=Nova Matrícula
     ...        visible        5  
     
-    
 Select account
     [Arguments]        ${name}        ${cpf} 
 
     Fill Text    css=input[aria-label=select_account]    ${name}
     Click    css=[data-testid="${cpf}"]
-    Sleep    2
-     
+    # Sleep    2
+
+Select plan
+    [Arguments]    ${plan}        
+    Fill Text    css=input[aria-label=select_plan]    ${plan}
+    # Click    css=div[id*=option] >> text=Plano Black
+    Click    css=div[class$=option] >> text=${plan}
+
+Fill payment card
+    [Arguments]        ${card_number}        ${card_holder}        ${month}        ${year}        ${cvv}
+
+        Fill Text    css=input[name="card_number"]    ${card_number}
+    Fill Text    css=input[name="card_holder"]    ${card_holder}
+    Fill Text    css=input[name="card_month"]     ${month}
+    Fill Text    css=input[name="card_year"]      ${year}
+    Fill Text    css=input[name="card_cvv"]        ${cvv}
