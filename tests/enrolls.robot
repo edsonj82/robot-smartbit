@@ -18,6 +18,12 @@ Should be a new membership
 
     Select account        Miguel da Paz        714.208.965-20
 
+    Fill Text    css=input[aria-label=select_plan]    Plano Black
+    # Click    css=div[id*=option] >> text=Plano Black
+     Click    css=div[class$=option] >> text=Plano Black
+
+    ${html}        Get Page Source
+    Log    ${html}
 
 *** Keywords ***
 Go to Enrolls
@@ -34,9 +40,8 @@ Go to Enroll form
     
 Select account
     [Arguments]        ${name}        ${cpf} 
-    # ${html}        Get Page Source
-    # Log    ${html}
 
     Fill Text    css=input[aria-label=select_account]    ${name}
     Click    css=[data-testid="${cpf}"]
     Sleep    2
+     
