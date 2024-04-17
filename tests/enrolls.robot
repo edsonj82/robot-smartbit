@@ -16,6 +16,9 @@ Should be a new membership
     Go to Enrolls
     Go to Enroll form 
 
+    Select account        Miguel da Paz        714.208.965-20
+
+
 *** Keywords ***
 Go to Enrolls
     Click    css=a[href="/memberships"]
@@ -27,3 +30,13 @@ Go to Enroll form
     Click    css=a[href="/memberships/new"]
    Wait For Elements State    css=h1 >> text=Nova Matrícula
     ...        visible        5  
+    
+    
+Select account
+    [Arguments]        ${name}        ${cpf} 
+    # ${html}        Get Page Source
+    # Log    ${html}
+
+    Fill Text    css=input[aria-label=select_account]    ${name}
+    Click    css=[data-testid="${cpf}"]
+    Sleep    2
