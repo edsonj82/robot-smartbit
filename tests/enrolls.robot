@@ -16,16 +16,21 @@ Should be a new membership
     Go to Enrolls
     Go to Enroll form 
 
-    Select account        Miguel da Paz        714.208.965-20
+    Select account        Mariana Souza        326.590.478-47
 
-    Select plan            Plano Black
+    Select plan           Plano Black
 
     Fill payment card    
     ...       4242424242424242
-    ...       Edson José
+    ...       Mariana Souza
     ...       04
     ...       2040
-    ...        123
+    ...       123
+    
+    Click    css=button[type=submit] >> text=Cadastrar
+    Toast should be    Matrícula cadastrada com sucesso.
+
+    # Sleep    3
 
     # ${html}        Get Page Source
     # Log    ${html}
@@ -46,19 +51,19 @@ Select account
     [Arguments]        ${name}        ${cpf} 
 
     Fill Text    css=input[aria-label=select_account]    ${name}
-    Click    css=[data-testid="${cpf}"]
+    Click        css=[data-testid="${cpf}"]
     # Sleep    2
 
 Select plan
     [Arguments]    ${plan}        
     Fill Text    css=input[aria-label=select_plan]    ${plan}
-    # Click    css=div[id*=option] >> text=Plano Black
-    Click    css=div[class$=option] >> text=${plan}
+    # Click      css=div[id*=option] >> text=Plano Black
+    Click        css=div[class$=option] >> text=${plan}
 
 Fill payment card
     [Arguments]        ${card_number}        ${card_holder}        ${month}        ${year}        ${cvv}
 
-        Fill Text    css=input[name="card_number"]    ${card_number}
+    Fill Text    css=input[name="card_number"]    ${card_number}
     Fill Text    css=input[name="card_holder"]    ${card_holder}
     Fill Text    css=input[name="card_month"]     ${month}
     Fill Text    css=input[name="card_year"]      ${year}
