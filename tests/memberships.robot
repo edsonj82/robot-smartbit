@@ -39,3 +39,10 @@ Should be a new membership
 
     # ${html}        Get Page Source
     # Log    ${html}
+
+Should not register a memberhip duplicated
+    ${data}    Get Json fixture    memberships    create
+    SignIn admin
+    Go to memberships
+    Create new membership    ${data}
+    Toast should be    O usuário já possui matrícula.
