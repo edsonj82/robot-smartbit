@@ -31,17 +31,9 @@ Should be a new membership
 
     SignIn admin
     Go to memberships
-    Go to memberships form 
-
-    # Select account        Mariana Souza        326.590.478-47
-    Select account            ${data}[account][name]        ${data}[account][cpf]
-
-    Select plan               ${data}[plan]
-
-    Fill payment card        ${data}[credit_card]
+    Create new membership    ${data}
 
     
-    Click    css=button[type=submit] >> text=Cadastrar
     # FIX: ALTER DATA MASS FIXED
     # Toast should be    Matrícula cadastrada com sucesso.
 

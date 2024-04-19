@@ -6,6 +6,16 @@ Library        Browser
 
 *** Keywords ***
 
+Create new membership
+    [Arguments]        ${data}
+    Go to memberships form 
+    # Select account        Mariana Souza        326.590.478-47
+    Select account            ${data}[account][name]        ${data}[account][cpf]
+    Select plan               ${data}[plan]
+    Fill payment card        ${data}[credit_card]
+
+    Click    css=button[type=submit] >> text=Cadastrar
+
 Go to memberships form
     # New Register
     Click    css=a[href="/memberships/new"]
