@@ -1,0 +1,17 @@
+{
+    "create": {
+        "account": {
+            "name": "Augusto Carvalho",
+            "email": "vianaana-clara@example.org",
+            "cpf": "948.032.571-32"
+        },
+        "plan": "Plano Black",
+        "credit_card": {
+            "number": "4242424242424242",
+            "holder": "Augusto Carvalho",
+            "month": "04",
+            "year": "2040",
+            "cvv": "123"
+        }
+    }
+}
