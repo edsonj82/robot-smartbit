@@ -23,11 +23,10 @@ Should be a new membership
     # ...        month=04
     # ...        year=2040
     # ...        cvv=123
-
     ${data}    Get Json fixture    memberships    create    
     # FIX: Fail in psycopg2 (BUG)
-    # Delete Account By Email         ${account}[email] 
-    # Insert Account                  ${account}        
+    # Delete Account By Email         ${data}[account][email] 
+    # Insert Account                  ${data}[account]        
     SignIn admin
     Go to memberships
     Create new membership    ${data}
@@ -38,14 +37,20 @@ Should be a new membership
     # Log    ${html}
 
 Should not register a memberhip duplicated
-    # [Tags]    dup
+    [Tags]    dup
     ${data}    Get Json fixture    memberships    duplicate
     # FIX: Fail in psycopg2 (BUG)
     # Delete Account By Email         ${data}[account][email] 
     # Insert Account                  ${data}[account] 
     SignIn admin
     Go to memberships
-    Create new membership    ${data}
+    # Create new membership    ${data}
     Sleep    8
     Create new membership    ${data}
     Toast should be    O usuário já possui matrícula.
+
+#INSERT INTO accounts(name, email, cpf)
+# values('Jonas Brothers','jonas@brothers.com','242.153.620-08')
+
+# INSERT INTO accounts(name, email, cpf)
+# values('Augusto Carvalho','vianaana-clara@example.org','948.032.571-32')
