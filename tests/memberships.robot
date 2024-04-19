@@ -25,24 +25,27 @@ Should be a new membership
     # ...        cvv=123
 
     ${data}    Get Json fixture    memberships    create    
-    
+    # FIX: Fail in psycopg2 (BUG)
     # Delete Account By Email         ${account}[email] 
     # Insert Account                  ${account}        
-
     SignIn admin
     Go to memberships
     Create new membership    ${data}
-
-    
-    # FIX: ALTER DATA MASS FIXED
+    # BUG: 
     # Toast should be    Matrícula cadastrada com sucesso.
 
     # ${html}        Get Page Source
     # Log    ${html}
 
 Should not register a memberhip duplicated
-    ${data}    Get Json fixture    memberships    create
+    # [Tags]    dup
+    ${data}    Get Json fixture    memberships    duplicate
+    # FIX: Fail in psycopg2 (BUG)
+    # Delete Account By Email         ${data}[account][email] 
+    # Insert Account                  ${data}[account] 
     SignIn admin
     Go to memberships
+    Create new membership    ${data}
+    Sleep    8
     Create new membership    ${data}
     Toast should be    O usuário já possui matrícula.

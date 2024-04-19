@@ -13,5 +13,20 @@
             "year": "2040",
             "cvv": "123"
         }
+    },
+    "duplicate": {
+        "account": {
+            "name": "Jonas Brothers",
+            "email": "jonas@brothers.com",
+            "cpf": "242.153.620-08"
+        },
+        "plan": "Plano Smart",
+        "credit_card": {
+            "number": "4242424242424242",
+            "holder": "Jonas Brothers",
+            "month": "04",
+            "year": "2040",
+            "cvv": "123"
+        }
     }
 }
