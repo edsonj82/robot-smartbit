@@ -29,10 +29,7 @@ Should be a new membership
     # Delete Account By Email         ${account}[email] 
     # Insert Account                  ${account}        
 
-
-    Go to login pages
-    Submit login form    sac@smartbit.com    pwd123
-    User is logged in    sac@smartbit.com
+    SignIn admin
     Go to memberships
     Go to memberships form 
 

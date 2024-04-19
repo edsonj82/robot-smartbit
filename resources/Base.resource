@@ -17,6 +17,10 @@ Resource        pages/components/Navbar.resource
 Resource        pages/components/Toast.resource
 Resource        pages/components/BoxMessage.resource
 
+*** Variables ***
+${ADMIN_EMAIL}   sac@smartbit.com
+${ADMIN_PASS}    pwd123
+
 *** Keywords ***
 Start session
     New Browser    browser=chromium    headless=False
@@ -30,3 +34,8 @@ Get Json fixture
     ...    encoding=utf-8
     
     RETURN    ${data}[${scenario}]
+
+SignIn admin
+    Go to login pages
+    Submit login form    ${ADMIN_EMAIL}    ${ADMIN_PASS}
+    User is logged in    ${ADMIN_EMAIL}      
