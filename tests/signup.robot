@@ -11,15 +11,15 @@ Test Teardown    Take Screenshot
 
 *** Test Cases ***
 Should show the Register User
-    # [Tags]    smoke
+    [Tags]    smoke
     ${account}        Get Fake Account
-    # ${account}        Create Dictionary
-    # ...            name=Edson José
-    # ...            email=xpto@msn.com
-    # ...            cpf=06097411871
+     ${account}        Create Dictionary
+     ...            name=Edson José
+     ...            email=xpto@msn.com
+     ...            cpf=06097411871
     
 
-    # Delete Account By Email         ${account}[email]
+     Delete Account By Email         ${account}[email]
 
     #prepare
     # Start session
