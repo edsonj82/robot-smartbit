@@ -13,7 +13,7 @@ Test Teardown    Take Screenshot
 Should show the Register User
     [Tags]    smoke
     ${account}        Get Fake Account
-     ${account}        Create Dictionary
+    ${account}        Create Dictionary
      ...            name=Edson José
      ...            email=xpto@msn.com
      ...            cpf=06097411871

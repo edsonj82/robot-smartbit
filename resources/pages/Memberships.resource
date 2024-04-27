@@ -11,7 +11,7 @@ Create new membership
     Go to memberships form 
     # Select account        Mariana Souza        326.590.478-47
     Select account            ${data}[account][name]        ${data}[account][cpf]
-    Select plan               ${data}[plan]
+    Select plan               ${data}[plan][name]
     Fill payment card        ${data}[credit_card]
 
     Click    css=button[type=submit] >> text=Cadastrar

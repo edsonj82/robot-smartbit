@@ -5,7 +5,11 @@
             "email": "vianaana-clara@example.org",
             "cpf": "948.032.571-32"
         },
-        "plan": "Plano Black",
+        "plan": {
+            "name": "Plano Black",
+            "id": 2,
+            "price":79.99
+        },
         "credit_card": {
             "number": "4242424242424242",
             "holder": "Augusto Carvalho",
@@ -20,7 +24,11 @@
             "email": "jonas@brothers.com",
             "cpf": "242.153.620-08"
         },
-        "plan": "Plano Smart",
+        "plan": {
+            "name": "Plano Smart",
+            "id": 1,
+            "price":99.99
+        },
         "credit_card": {
             "number": "4242424242424242",
             "holder": "Jonas Brothers",

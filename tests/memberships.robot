@@ -32,7 +32,7 @@ Should be a new membership
     SignIn admin
     Go to memberships
     Create new membership    ${data}
-    # BUG: 
+
     Toast should be    Matrícula cadastrada com sucesso.
 
     # ${html}        Get Page Source
@@ -42,13 +42,14 @@ Should not register a memberhip duplicated
     [Tags]    dup
     ${data}    Get Json fixture    memberships    duplicate
 
-    Delete Account By Email         ${data}[account][email] 
-    Insert Account                  ${data}[account] 
+    # Delete Account By Email         ${data}[account][email] 
+    # Insert Account                  ${data}[account] 
+    Insert Membership    ${data}    
     
     SignIn admin
     Go to memberships
-    Create new membership    ${data}
-    Sleep    8
+    # Create new membership    ${data}
+    # Sleep    8
     Create new membership    ${data}
     Toast should be    O usuário já possui matrícula.
 
