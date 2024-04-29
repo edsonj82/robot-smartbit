@@ -53,6 +53,19 @@ Should not register a memberhip duplicated
     Create new membership    ${data}
     Toast should be    O usuário já possui matrícula.
 
+Should search by name
+    [Tags]    search
+    ${name}        Set Variable    Emily Stone
+
+    SignIn admin
+    Go to memberships
+
+    Fill Text    css=input[placeholder^=Busque]    ${name}
+    Wait For Elements State    css=strong >> text=Total: 1
+
+    Wait For Elements State    css=table tbody tr >> text=${name}
+    ...    visible    5
+
 #INSERT INTO accounts(name, email, cpf)
 # values('Jonas Brothers','jonas@brothers.com','242.153.620-08')
 
