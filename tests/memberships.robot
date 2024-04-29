@@ -60,12 +60,15 @@ Should not register a memberhip duplicated
     Toast should be    O usuário já possui matrícula.
 
 Should search by name
-    # [Tags]    search
-    ${name}        Set Variable    Emily Stone
+    [Tags]    search
+    # ${name}        Set Variable    Emily Stone
+    ${data}        Get Json fixture    memberships    search
+    
+    Insert Membership    ${data}
 
     SignIn admin
     Go to memberships
 
-    Search by name        ${name}
+    Search by name        ${data}[account][name]
 
-    Should filter by name    ${name}
+    Should filter by name    ${data}[account][name]

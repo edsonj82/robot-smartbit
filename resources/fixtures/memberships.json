@@ -36,5 +36,24 @@
             "year": "2040",
             "cvv": "123"
         }
+    },
+    "search": {
+        "account": {
+            "name": "Tamires Albuquerque",
+            "email": "tamires@albuquerque.com",
+            "cpf": "227.026.230-18"
+        },
+        "plan": {
+            "name": "Plano Smart",
+            "id": 1,
+            "price":99.99
+        },
+        "credit_card": {
+            "number": "4242424242424242",
+            "holder": "Tamires Albuquerque",
+            "month": "04",
+            "year": "2040",
+            "cvv": "123"
+        }
     }
 }
