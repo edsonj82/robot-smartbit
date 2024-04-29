@@ -38,6 +38,12 @@ Should be a new membership
     # ${html}        Get Page Source
     # Log    ${html}
 
+    #INSERT INTO accounts(name, email, cpf)
+    # values('Jonas Brothers','jonas@brothers.com','242.153.620-08')
+
+    # INSERT INTO accounts(name, email, cpf)
+    # values('Augusto Carvalho','vianaana-clara@example.org','948.032.571-32')
+
 Should not register a memberhip duplicated
     [Tags]    dup
     ${data}    Get Json fixture    memberships    duplicate
@@ -54,20 +60,12 @@ Should not register a memberhip duplicated
     Toast should be    O usuário já possui matrícula.
 
 Should search by name
-    [Tags]    search
+    # [Tags]    search
     ${name}        Set Variable    Emily Stone
 
     SignIn admin
     Go to memberships
 
-    Fill Text    css=input[placeholder^=Busque]    ${name}
-    Wait For Elements State    css=strong >> text=Total: 1
+    Search by name        ${name}
 
-    Wait For Elements State    css=table tbody tr >> text=${name}
-    ...    visible    5
-
-#INSERT INTO accounts(name, email, cpf)
-# values('Jonas Brothers','jonas@brothers.com','242.153.620-08')
-
-# INSERT INTO accounts(name, email, cpf)
-# values('Augusto Carvalho','vianaana-clara@example.org','948.032.571-32')
+    Should filter by name    ${name}
