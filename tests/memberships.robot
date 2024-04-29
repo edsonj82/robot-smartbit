@@ -72,3 +72,20 @@ Should search by name
     Search by name        ${data}[account][name]
 
     Should filter by name    ${data}[account][name]
+
+Should delete a membership
+    [Tags]    delete
+
+    ${data}        Get Json fixture    memberships    delete
+    
+    Insert Membership    ${data}
+
+    SignIn admin
+    Go to memberships
+
+    Click    xpath=//td[text()="Felipe Albuquerque"]/..//button
+
+    Click    css=.swal2-confirm
+
+    Wait For Elements State    css=table tbody tr >> text=Felipe Albuquerque
+    ...    detached    5

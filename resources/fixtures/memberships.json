@@ -55,5 +55,24 @@
             "year": "2040",
             "cvv": "123"
         }
+    },
+    "delete": {
+        "account": {
+            "name": "Felipe Albuquerque",
+            "email": "felipe@albuquerque.com",
+            "cpf": "860.935.140-80"
+        },
+        "plan": {
+            "name": "Plano Smart",
+            "id": 1,
+            "price":99.99
+        },
+        "credit_card": {
+            "number": "4242424242424242",
+            "holder": "Felipe Albuquerque",
+            "month": "04",
+            "year": "2040",
+            "cvv": "123"
+        }
     }
 }
